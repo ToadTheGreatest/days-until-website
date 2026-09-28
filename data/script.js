@@ -8,8 +8,11 @@ function writeCookie(cookie) {
     }
     return false;
 }
-function readCookie() {
-    return document.cookie
+function readCookies() {
+    var cookies = document.cookie.split("; ");
+    var cookiePrefs = {}
+    cookies.forEach(c => {var cookie = c.split("=");cookiePrefs[cookie[0]] = cookie[1]})
+    return cookiePrefs
 }
 function acceptCookies() {
     cookieConsent = true;
